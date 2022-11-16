@@ -18,6 +18,7 @@ interface SchoolDirectorDao {
     @Transaction
     @Query("SELECT * FROM school WHERE schoolName= :schoolName")
     suspend fun getSchoolWithStudents(schoolName:String):List<SchoolWithStudents>
+
     @Transaction
     @Query("SELECT * FROM school WHERE schoolName=:schoolName")
     suspend fun getAllDirectorsWithSchoolName(schoolName:String):List<SchoolAndDirector>
