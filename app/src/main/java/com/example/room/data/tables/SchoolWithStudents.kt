@@ -3,11 +3,12 @@ package com.example.room.data.tables
 import androidx.room.Embedded
 import androidx.room.Relation
 
-data class SchoolAndDirector(
-    @Embedded val school: School,
+
+data class SchoolWithStudents(
+    @Embedded val schoolName:String,
     @Relation(
-        parentColumn = "schoolName",
+        parentColumn= "schoolName",
         entityColumn = "schoolName"
-    )
-    val director: Director
+        )
+    val students:List<Student>
 )
