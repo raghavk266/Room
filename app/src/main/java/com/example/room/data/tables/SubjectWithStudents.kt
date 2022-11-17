@@ -9,5 +9,5 @@ data class SubjectWithStudents(
         parentColumn = "subjectName",
         entityColumn = "schoolName"
     )
-    val students:List<Subject>
+    val students:List<Student>
 )

@@ -5,7 +5,7 @@ import androidx.room.Relation
 
 
 data class SchoolWithStudents(
-    @Embedded val schoolName:String,
+    @Embedded val school:School,
     @Relation(
         parentColumn= "schoolName",
         entityColumn = "schoolName"

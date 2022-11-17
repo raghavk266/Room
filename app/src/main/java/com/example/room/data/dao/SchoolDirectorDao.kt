@@ -37,4 +37,7 @@ interface SchoolDirectorDao {
     @Query("SELECT * FROM student WHERE studentName= :studentName")
     suspend fun getSubjectsWithStudent(studentName:String):List<StudentWithSubjects>
 
+    @Query("SELECT * FROM student")
+    suspend fun getAllStudents():List<Student>
+
 }

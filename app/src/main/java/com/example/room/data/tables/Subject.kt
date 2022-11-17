@@ -5,6 +5,5 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class Subject (
-        @PrimaryKey
-        val subjectName:String
-        )
+        @PrimaryKey(autoGenerate = false)
+        val subjectName:String)
