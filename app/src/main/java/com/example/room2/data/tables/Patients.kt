@@ -7,6 +7,5 @@ import androidx.room.PrimaryKey
 data class Patients (
     @PrimaryKey(autoGenerate = false)
     val patientName:String,
-    val diagnosis:String,
-    val doctor:String
+    val diagnosis:String
     )

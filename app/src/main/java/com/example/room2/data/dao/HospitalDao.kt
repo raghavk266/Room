@@ -1,13 +1,11 @@
 package com.example.room2.data.dao
 
-import androidx.room.Insert
-import androidx.room.OnConflictStrategy
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 import com.example.room2.data.tables.*
 import com.example.room2.data.tables.Hospital
 
-interface Hospital {
+@Dao
+interface HospitalDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHospital(hospital: Hospital)
@@ -26,15 +24,15 @@ interface Hospital {
 
     @Transaction
     @Query("SELECT * FROM patients where patientName = :patientName")
-    suspend fun getAllPatientsWithDoctors(patientName: String):List<HospitalAndHod>
+    suspend fun getAllPatientsWithDoctors(patientName: String):List<PatientWithDoctors>
 
     @Transaction
     @Query("SELECT * FROM doctors where doctorName = :doctorName")
-    suspend fun getAllDoctorsWithPatients(doctorName: String):List<HospitalAndHod>
+    suspend fun getAllDoctorsWithPatients(doctorName: String):List<DoctorsWithPatients>
 
     @Transaction
     @Query("SELECT * FROM hospital where hospitalName = :hospitalName")
-    suspend fun getAllHospitalWithDoctors(hospitalName: String):List<HospitalAndHod>
+    suspend fun getAllHospitalWithDoctors(hospitalName: String):List<HospitalWithDoctors>
 
     @Transaction
     @Query("SELECT * FROM hospital where hospitalName = :hospitalName")
